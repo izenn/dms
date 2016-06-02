@@ -26,6 +26,14 @@ jQuery(function($){
         fill('LT');
         this.style.fill = "url(#LT)";
     });
+  $('#righttorso').click(function(){
+        fill('RT');
+        this.style.fill = "url(#RT)";
+    });
+  $('#head').click(function(){
+        fill('Head');
+        this.style.fill = "url(#Head)";
+    });
 });
 
 function fill(name){
@@ -48,7 +56,7 @@ function fill(name){
 </head>
 
 <body>
-<svg id="svg4188" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="297mm" width="210mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 744.09448819 1052.3622047">
+<svg id="svg4188" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="297mm" width="210mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs>
     <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="CT">
       <stop stop-color="#F00" offset="0%" id="CT1"/>
@@ -58,10 +66,21 @@ function fill(name){
       <stop stop-color="#F00" offset="0%" id="LT1"/>
       <stop stop-color="#FFFFFF" offset="0%" id="LT2"/>
     </linearGradient>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="RT">
+      <stop stop-color="#F00" offset="0%" id="RT1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="RT2"/>
+    </linearGradient>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="Head">
+      <stop stop-color="#F00" offset="0%" id="Head1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="Head2"/>
+    </linearGradient>
   </defs>
  <g id="layer1" stroke="#000" stroke-width="7" fill="none">
   <path id="lefttorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m225 313.08-10.714 12.143 9.2857 190 9.2857 10 60.714 10 7.1429 56.429 12.143 47.143l17.14 42.86-73.571 15.714-7.1429 87.143 7.1429 7.8571 147.14-0.71428v-112.14l-14.286-143.57v-229.29z"/>
-  <path id="centertorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m389.29 306.65v232.86l14.286 139.29v111.43l10 78.571 7.8571 10 120.71 0.71429 10.714-12.857 7.8572-75v-107.86l15-150.71-2.1429-227.14-13.929 51.607c-2.0712 7.6741-4.5852 15.375-9.2165 21.835-4.6314 6.46-11.046 11.5-18.06 15.239-14.008 7.4662-30.083 10.203-45.938 10.961-17.865 0.85392-36.524-0.88388-51.964-9.9107-12.65-7.4-22.44-19.55-26.97-33.49l-18.21-55.53z"/>
+  <path id="centertorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m389.29 306.65v232.86l14.286 139.29v111.43l10 78.571 7.8571 10 120.71 0.71429 10.714-12.857 7.8572-75v-107.86l15-150.71-2.1429-227.14s-4.6727 48.555-19.503 66.099c-16.998 20.11-44.657 35.084-70.985 34.658-29.34-0.47494-59.485-18.248-77.814-41.163-12.71-15.89-15.99-58.89-15.99-58.89z"/>
+ </g>
+ <path id="righttorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m573 305.45 2.2296 230.76-15.607 150.5v102.56l143.81 2.2296 12.263-8.9183-6.6887-82.494-6.6887-6.6888-68.002-12.263 15.607-37.903 13.377-51.28 6.6887-57.969 60.199-8.9183 13.377-12.263 4.4592-191.74-7.8035-7.8035-167.22-7.8035z" stroke="#000" stroke-width="7" fill="none"/>
+ <path id="head" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m393.52 305.45-23.411-2.2296v-63.543l11.148-10.033h26.755c-0.20012-11.553 3.5997-23.138 10.604-32.329 6.3114-8.2817 15.176-14.589 25.07-17.837v-17.837l7.8035-12.263h62.428l6.6887 8.9183v20.066c8.2741 4.2636 15.572 10.409 21.181 17.837 6.821 9.0321 11.112 19.954 12.263 31.214l25.64 4.4592 12.263 10.033 2.2296 62.428-24.525 2.2296c4.6241 22.135-0.57126 46.138-13.935 64.379-8.6257 11.774-20.454 21.117-33.751 27.137-13.297 6.0197-28.025 8.7399-42.612 8.2574-25.534-0.84453-50.934-11.997-67.445-31.493-15.985-18.874-22.932-45.082-18.394-69.396z" stroke="#000" stroke-width="7" fill="none"/>
  </g>
   
 </body>
