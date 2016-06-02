@@ -1,94 +1,68 @@
+
+<!DOCTYPE html>
 <html>
 <head>
-<style media="screen" type="text/css">
-    #Icon {
-      position: absolute;
-      width: 779px;
-      height: 2304px;
-    }
-    
-    #fillLA {
-      position: absolute;
-      z-index: 2;
-      width: 100%;
-      height: 0%;
-      margin-top: 0;
-      overflow: hidden;
-    }
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-    #fillHead {
-      position: absolute;
-      z-index: 2;
-      width: 100%;
-      height: 0%;
-      margin-top: 0;
-      overflow: hidden;
+  <style type="text/css">
+    body { margin:1em; text-align:center }
+    path {
+      fill:white;
+      stroke:black;
+      stroke-width:3;
+      stroke-linejoin:round;
+      stroke-linecap:round;
     }
-    
-    #IconText {
-      position: absolute;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      line-height: 150%;
-      text-align: center;
-      color: #cccccc;
-      font-weight: bold;
-      font-family: consolas;
-      font-size: 1.5em;
-    }
-</style>
-</head>
-<body>
-<div id='Icon'>
-  <div id='IconText'><img style='width: 100%; height: 100%;' src='mech.png' usemap='#redmap'/></div>
-  <div id='fillLA'><img style='width: 236px; height: 755px;' src='left-arm.png' usemap='#redmap'/></div>
-  <div id='fillHead'><img style='width: 512px; height: 342px;' src='head.png' usemap='#redmap'/></div>
-  <map name="redmap">
-    <area class="leftarm" shape="poly" coords="147,139,183,178,200,217,195,233,165,252,162,280,173,280,177,366,161,363,160,377,151,379,145,473,133,480,143,486,133,494,143,502,132,626,124,632,109,632,121,666,117,692,107,703,100,733,69,740,44,712,45,674,32,674,52,627,38,626,14,590,33,492,44,484,39,478,49,472,39,464,48,364,7,331,8,304,41,300,16,267,26,238,65,243,55,187,74,174,114,195,116,147" target="_self" href="#"/>
-    <area class="head" shape="poly" coords="364,118,408,119,415,127,417,144,426,152,435,165,443,179,466,185,475,192,476,243,454,243,454,257,450,282,443,295,435,307,428,313,416,319,405,322,388,325,371,324,358,320,348,316,338,308,330,299,323,289,320,272,317,257,317,244,297,241,297,192,305,185,323,183,333,171,340,156,352,144,358,124" style="outline:none;" target="_self" href="#"/>
+  </style>
 
-  </map>
-</div>
+<script type='text/javascript'>
+jQuery(function($){
+  $('#centertorso').click(function(){
+	fill('CT');
+        this.style.fill = "url(#CT)";
+    });
+  $('#lefttorso').click(function(){
+        fill('LT');
+        this.style.fill = "url(#LT)";
+    });
+});
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
-    var speed = 10;
-$(".leftarm").on("click", function(e){
-    e.preventDefault();
-    var fill = 133;
-    var percentage = 0;
+function fill(name){
+    var speed=15;
+    var fill=0;
     var percentage = parseInt(prompt("Please enter percentage"), 10);
-    var fillpx = 622 * percentage / 100 + 133;
+    var firstStop = document.getElementById(name + "1");
     if (percentage > 0) {
       var icon = setInterval(function() {
         fill += 1;
-        $('#fillLA').css('height', (fill + 'px'));
-        if (fill >= fillpx) {
+        fillstr = fill + '%';
+        firstStop.setAttribute('offset',fillstr);
+        if (fill >= percentage) {
           clearInterval(icon);
         }
       }, speed);
-    }
-});
-
-$(".head").on("click", function(e){
-    e.preventDefault();
-    var fill = 122;
-    var percentage = 0;
-    var percentage = parseInt(prompt("Please enter percentage"), 10);
-    var fillpx = 220 * percentage / 100 + 122;
-    if (percentage > 0) {
-      var icon = setInterval(function() {
-        fill += 1;
-        $('#fillHead').css('height', (fill + 'px'));
-        if (fill >= fillpx) {
-          clearInterval(icon);
-        }
-      }, speed);
-    }
-});
-
-
+}};
 </script>
+  
+</head>
+
+<body>
+<svg id="svg4188" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="297mm" width="210mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 744.09448819 1052.3622047">
+  <defs>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="CT">
+      <stop stop-color="#F00" offset="0%" id="CT1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="CT2"/>
+    </linearGradient>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="LT">
+      <stop stop-color="#F00" offset="0%" id="LT1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="LT2"/>
+    </linearGradient>
+  </defs>
+ <g id="layer1" stroke="#000" stroke-width="7" fill="none">
+  <path id="lefttorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m225 313.08-10.714 12.143 9.2857 190 9.2857 10 60.714 10 7.1429 56.429 12.143 47.143l17.14 42.86-73.571 15.714-7.1429 87.143 7.1429 7.8571 147.14-0.71428v-112.14l-14.286-143.57v-229.29z"/>
+  <path id="centertorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m389.29 306.65v232.86l14.286 139.29v111.43l10 78.571 7.8571 10 120.71 0.71429 10.714-12.857 7.8572-75v-107.86l15-150.71-2.1429-227.14-13.929 51.607c-2.0712 7.6741-4.5852 15.375-9.2165 21.835-4.6314 6.46-11.046 11.5-18.06 15.239-14.008 7.4662-30.083 10.203-45.938 10.961-17.865 0.85392-36.524-0.88388-51.964-9.9107-12.65-7.4-22.44-19.55-26.97-33.49l-18.21-55.53z"/>
+ </g>
+  
 </body>
 </html>
