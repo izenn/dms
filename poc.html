@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>JSON Sample</title>
-</head>
+<html>
 <body>
-    <div id="placeholder"></div>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>
-  $.getJSON('https://izenn.github.io/dms/mechs.json', function(data) {
-	console.log(data);
-        var output="<ul>";
-        for (var i in data) {
-		console.log(i);
-            output+="<li>" + data[i].Name + " " + data.users[i].Model + " -- " + data.users[i].Tonnage+"</li>";
-        }
+<span></span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $.get('mechs.json', function(jsonp) {    
+	var num = "247";
+        var obj = $.parseJSON(jsonp);
+	var output = obj[num].Name + " " + obj[num].Model;
 
-        output+="</ul>";
-        document.getElementById("placeholder").innerHTML=output;
-  });
-    </script>
-</body>
-</html>
+	output += "<p>";
+	var names = new Array();
+	for (i = 1; i <= Object.keys(obj).length; i++) {
+	  var name = obj[i].Name + " " + obj[i].Model
+	  names.push(name);
+	}
+	names.sort();
+	output += names.join("<br/>")
+        $('span').html(output);
+        })
+    });
+</script>
+
