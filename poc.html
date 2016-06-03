@@ -10,8 +10,9 @@
     <script>
   $.getJSON('mechs.json', function(data) {
         var output="<ul>";
-        for (var i in data.users) {
-            output+="<li>" + data.users[i].Name + " " + data.users[i].Model + " -- " + data.users[i].Tonnage+"</li>";
+        for (var i in data) {
+		console.log(i);
+            output+="<li>" + data[i].Name + " " + data.users[i].Model + " -- " + data.users[i].Tonnage+"</li>";
         }
 
         output+="</ul>";
