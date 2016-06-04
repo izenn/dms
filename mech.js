@@ -1,7 +1,7 @@
 var obj = new Array();
 var values = '';
 $(document).ready(function() {
-	$.get('mechs.github.json', function(jsonp) {    
+	$.get('mechs.github', function(jsonp) {    
 		var num = "247";
 		obj = $.parseJSON(jsonp);
 
