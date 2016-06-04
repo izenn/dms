@@ -77,8 +77,9 @@ svg {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+var obj = new Array();
+var values = '';
 $(document).ready(function() {
-	var obj = new Array();
 	$.get('mechs.min.json', function(jsonp) {    
 		var num = "247";
 		obj = $.parseJSON(jsonp);
@@ -98,52 +99,63 @@ $(document).ready(function() {
 	})
 
 	$('#selector').change(function() {
-		var values = this.value
+		values = this.value
 		var output = obj[values].Head_Armor + " " + obj[values].LA_Armor + " " + obj[values].LT_Armor + " " + obj[values].CT_Armor + " " + obj[values].RT_Armor + " " + obj[values].RA_Armor + " " + obj[values].LL_Armor + " " + obj[values].RL_Armor + "<br/>"
 		console.log(obj[values]);
 		$('span').html(output);
 	})
 });
 
+var headDamage = 0;
+var laDamage = 0;
+var ltDamage = 0;
+var ctDamage = 0;
+var rtDamage = 0;
+var raDamage = 0;
+var llDamage = 0;
+var rlDamage = 0;
+
 jQuery(function($){
   $('#centertorso').click(function(){
-	fill('CT');
+        ctDamage = fill('CT', obj[values].CT_Armor, ctDamage);
         this.style.fill = "url(#CT)";
     });
   $('#lefttorso').click(function(){
-        fill('LT');
+        ltDamage = fill('LT', obj[values].LT_Armor, ltDamage);
         this.style.fill = "url(#LT)";
     });
   $('#righttorso').click(function(){
-        fill('RT');
+        rtDamage = fill('RT', obj[values].RT_Armor, rtDamage);
         this.style.fill = "url(#RT)";
     });
   $('#head').click(function(){
-        fill('Head');
+        headDamage = fill('Head', obj[values].Head_Armor, headDamage);
         this.style.fill = "url(#Head)";
     });
   $('#leftleg').click(function(){
-        fill('LL');
+        llDamage = fill('LL', obj[values].LL_Armor, llDamage);
         this.style.fill = "url(#LL)";
     });
   $('#rightleg').click(function(){
-        fill('RL');
+        rlDamage = fill('RL', obj[values].RL_Armor, rlDamage);
         this.style.fill = "url(#RL)";
     });
   $('#leftarm').click(function(){
-        fill('LA');
+        laDamage = fill('LA', obj[values].LA_Armor, laDamage);
         this.style.fill = "url(#LA)";
     });
   $('#rightarm').click(function(){
-        fill('RA');
+        raDamage = fill('RA', obj[values].RA_Armor, raDamage);
         this.style.fill = "url(#RA)";
     });
 });
 
-function fill(name){
+function fill(name, partTotal, oldDamage){
     var speed=15;
-    var fill=0;
-    var percentage = parseInt(prompt("Please enter percentage"), 10);
+    var fill=oldDamage * 100 / partTotal;
+    var newDamage = parseInt(prompt("Please enter new damage"), 10);
+    var damage = newDamage + oldDamage;
+    var percentage = damage * 100 / partTotal;
     var firstStop = document.getElementById(name + "1");
     if (percentage > 0) {
       var icon = setInterval(function() {
@@ -154,6 +166,7 @@ function fill(name){
           clearInterval(icon);
         }
       }, speed);
+	return damage;
 }};
 </script>
 
