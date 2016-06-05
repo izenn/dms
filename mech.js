@@ -2,7 +2,6 @@ var obj = new Array();
 var values = '';
 $(document).ready(function() {
 	$.get('mechs.github', function(jsonp) {    
-		var num = "247";
 		obj = $.parseJSON(jsonp);
 
 		var names = new Array();
@@ -24,6 +23,9 @@ $(document).ready(function() {
 		var output = obj[values].Head_Armor + " " + obj[values].LA_Armor + " " + obj[values].LT_Armor + " " + obj[values].CT_Armor + " " + obj[values].RT_Armor + " " + obj[values].RA_Armor + " " + obj[values].LL_Armor + " " + obj[values].RL_Armor + "<br/>"
 		console.log(obj[values]);
 		$('span').html(output);
+		$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
+		$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
+		$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
 	})
 });
 
@@ -44,6 +46,7 @@ jQuery(function($){
   $('#lefttorso').click(function(){
         ltDamage = fill('LT', obj[values].LT_Armor, ltDamage);
         this.style.fill = "url(#LT)";
+        $('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
     });
   $('#righttorso').click(function(){
         rtDamage = fill('RT', obj[values].RT_Armor, rtDamage);
@@ -64,21 +67,40 @@ jQuery(function($){
   $('#leftarm').click(function(){
         laDamage = fill('LA', obj[values].LA_Armor, laDamage);
         this.style.fill = "url(#LA)";
+        $('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
     });
   $('#rightarm').click(function(){
-        raDamage = fill('RA', obj[values].RA_Armor, raDamage);
+        raDamage = fill('RA', obj[values].RA_Armor, raDamage, 'url(#RA)');
         this.style.fill = "url(#RA)";
+        $('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
     });
 });
 
-function fill(name, partTotal, oldDamage){
+
+function fill(name, partTotal, oldDamage, styleFill){
     var speed=15;
     var fill=oldDamage * 100 / partTotal;
     var newDamage = parseInt(prompt("Please enter new damage"), 10);
     var damage = newDamage + oldDamage;
     var percentage = damage * 100 / partTotal;
     var firstStop = document.getElementById(name + "1");
-    if (percentage > 0) {
+    if (percentage >= 100) {
+        firstStop.setAttribute('stop-color','#000');
+	var icon = setInterval(function() {
+        fill += 1;
+        fillstr = fill + '%';
+        firstStop.setAttribute('offset',fillstr);
+        if (fill >= percentage) {
+          clearInterval(icon);
+        }
+      }, speed);
+	if (percentage > 100) {
+	  var extraDamage = damage - partTotal;
+	  alert("extra damage " + extraDamage); 
+	}
+	damage = partTotal;
+    } else if (percentage > 0) {
+        firstStop.setAttribute('stop-color','#F00');
       var icon = setInterval(function() {
         fill += 1;
         fillstr = fill + '%';
@@ -87,5 +109,6 @@ function fill(name, partTotal, oldDamage){
           clearInterval(icon);
         }
       }, speed);
+}
 	return damage;
-}};
+};
