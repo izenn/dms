@@ -65,8 +65,6 @@ jQuery(function ($) {
       event.preventDefault();
       $.modal.close()
       if (target.is('#head')) {
-        console.log(target);
-        console.log('foo');
         headDamage = fill('headFill', obj[values].Head_Armor, headDamage);
         var element = document.getElementById('head')
         element.style.fill = "url(#headFill)";
@@ -114,7 +112,7 @@ function fill(name, partTotal, oldDamage) {
     }, speed);
     if (percentage > 100) {
       var extraDamage = damage - partTotal;
-      alert("excess damage " + extraDamage);
+      alertModal("excess damage " + extraDamage);
     }
     damage = partTotal;
   } else if (percentage > 0) {
@@ -130,3 +128,14 @@ function fill(name, partTotal, oldDamage) {
   }
   return damage;
 };
+
+function alertModal(message) {
+  // Get your modal markup from the DOM.
+  var myModal = $('#myModal');
+
+  // Inject your message somewhere into the modal.
+  myModal.find('span.message').text(message);
+
+  // Display the modal.
+  myModal.modal();
+}
