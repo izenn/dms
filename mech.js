@@ -23,9 +23,9 @@ $(document).ready(function() {
 		var output = obj[values].Head_Armor + " " + obj[values].LA_Armor + " " + obj[values].LT_Armor + " " + obj[values].CT_Armor + " " + obj[values].RT_Armor + " " + obj[values].RA_Armor + " " + obj[values].LL_Armor + " " + obj[values].RL_Armor + "<br/>"
 		console.log(obj[values]);
 		$('span').html(output);
-		$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
-		$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
-		$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
+//		$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
+//		$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
+//		$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
 	})
 });
 
@@ -46,15 +46,32 @@ jQuery(function($){
   $('#lefttorso').click(function(){
         ltDamage = fill('ltFill', obj[values].LT_Armor, ltDamage);
         this.style.fill = "url(#ltFill)";
-        $('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
+        //$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
     });
   $('#righttorso').click(function(){
         rtDamage = fill('rtFill', obj[values].RT_Armor, rtDamage);
         this.style.fill = "url(#rtFill)";
     });
-  $('#head').click(function(){
+  $('a[href="#damage"]').click(function(){
+	var target = '';
+      target = $( event.target );
+    document.getElementById('msg').value = "";
+      $(this).modal({
+        fadeDuration: 250,
+        showClose: false
+      });
+    $(document).on("click", "#submit", function(){
+      event.preventDefault();
+      $.modal.close()
+      if (target.is('#head')) {
+console.log(target);
+console.log('foo');
         headDamage = fill('headFill', obj[values].Head_Armor, headDamage);
-        this.style.fill = "url(#headFill)";
+        var element = document.getElementById('head')
+        element.style.fill = "url(#headFill)";
+      };
+    });
+
     });
   $('#leftleg').click(function(){
         llDamage = fill('llFill', obj[values].LL_Armor, llDamage);
@@ -67,12 +84,12 @@ jQuery(function($){
   $('#leftarm').click(function(){
         laDamage = fill('laFill', obj[values].LA_Armor, laDamage);
         this.style.fill = "url(#laFill)";
-        $('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
+        //$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
     });
   $('#rightarm').click(function(){
         raDamage = fill('raFill', obj[values].RA_Armor, raDamage);
         this.style.fill = "url(#raFill)";
-        $('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
+        //$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
     });
 });
 
@@ -80,7 +97,7 @@ jQuery(function($){
 function fill(name, partTotal, oldDamage){
     var speed=15;
     var fill=oldDamage * 100 / partTotal;
-    var newDamage = parseInt(prompt("Please enter new damage"), 10);
+    var newDamage = parseInt($("#msg").val());
     var damage = newDamage + oldDamage;
     var percentage = damage * 100 / partTotal;
     var firstStop = document.getElementById(name + "1");

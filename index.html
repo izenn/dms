@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="jquery.modal.min.css">
   <style type="text/css">
     body { margin:1em;}
     path { fill:white; stroke:black; stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
     .container { width: 33%; height: 0; padding-top: 48%; position: relative; }
     svg { position: absolute; top: 0; left: 0; }
+    body > .modal { display: none; }
   </style>
 </head>
 <body>
-
+  <div id="damage" class="modal">
+  <h3>Enter Damage:</h3>
+  <form id="newinput" name="newinput" action="#" method="post">
+    <input type="text" id="msg" name="msg" class="txtarea">
+    <button id="submit" rel="modal:close">OK</button>
+  </form>
+  </div>
 <select id="selector"></select>
 <span></span>
 <div class="container"><svg id="mechfront" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 966 1354">
@@ -49,42 +57,52 @@
   </defs>
   <g id="layer1" stroke="#000" stroke-width="7" fill="none">
   <g>
+    <a href="#damage">
     <path id="lefttorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m226.58 181.28-10.714 12.143 9.2857 190 9.2857 10 60.714 10 7.1429 56.429 12.143 47.143 17.143 42.857-73.571 15.714-7.1429 87.143 7.1429 7.8571 147.14-0.71428v-112.14l-14.286-143.57v-229.29z"/>
-    <text id="lefttorsotext" x="225" y="300" font-family="Verdana" font-size="55">LT</text>
+    <text id="lefttorsotext" x="225" y="300" font-family="Verdana" font-size="55"> </text>
   </g>
   <g>
+    <a href="#damage">
     <path id="centertorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m390.86 174.85v232.86l14.286 139.29v111.43l10 78.571 7.8571 10 120.71 0.71429 10.714-12.857 7.8572-75v-107.86l15-150.71-2.1429-227.14-13.929 51.607c-2.0712 7.6741-4.5852 15.375-9.2165 21.835-4.6314 6.46-11.046 11.5-18.06 15.239-14.008 7.4662-30.083 10.203-45.938 10.961-17.865 0.85392-36.524-0.88388-51.964-9.9107-12.648-7.3944-22.436-19.549-26.964-33.482l-18.214-55.536z"/>
      <text id="centertorsotext" x="760" y="300" font-family="Verdana" font-size="55"></text>
   </g>
   <g>
+    <a href="#damage">
      <path id="righttorso" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m574.58 173.65 2.2296 230.76-15.607 150.5v102.56l143.81 2.2296 12.263-8.9183-6.6887-82.494-6.6887-6.6888-68.002-12.263 15.607-37.903 13.377-51.28 6.6887-57.969 60.199-8.9184 13.377-12.263 4.4592-191.74-7.8035-7.8035-167.22-7.8035z"/>
       <text id="righttorsotext" x="760" y="300" font-family="Verdana" font-size="55"></text>
   </g>
   <g>
+    <a href="#damage">
     <path id="head" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m395.1 173.65-23.411-2.2296v-63.543l11.148-10.033h26.755l16.178-28.985 19.496-21.181v-17.837l11.148-13.377 52.225-0.33943 13.156 14.972 0.39115 15.467 18.951 23.411 14.492 25.64 24.356 0.60564 13.547 13.887 2.2296 62.428-24.525 2.2296c4.6241 22.135-0.5713 46.137-13.935 64.379-8.6257 11.774-20.454 21.117-33.751 27.137-13.297 6.0197-28.025 8.7399-42.612 8.2574-25.534-0.84453-50.934-11.997-67.445-31.493-15.985-18.874-22.932-45.081-18.394-69.396z"/>
    <text id="headtext" x="760" y="300" font-family="Verdana" font-size="55"></text>
+   </a>
   </g>
   <g>
+    <a href="#damage">
        <path id="leftleg" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m277.55 660.33 127.03-1.1241 9.5552 78.127 9.5552 8.9931-42.155 146.14 8.431 3.3724 2.2483 6.1828-26.417 23.607-3.9345 20.796 2.8103 12.366-10.117 34.286 3.9345 6.7448 2.2483 163.56-23.045 39.907-35.41 6.1827-10.117 41.031-11.241 3.9344 0.56206 37.096 16.862 8.9929 3.3724 14.613 9.5552 10.679-1.1241 21.359-250.68 1.6862 0.56207-21.921 10.679-5.0586 7.3069-15.738 55.645-23.606 11.241-20.234-23.045-11.803 16.3-67.448-19.11-21.921v-23.045l65.762-151.76 8.431-3.9345-3.3724-68.01 12.928-55.645 23.045-1.1241 51.71-197.29z"/>
    <text id="leftlegtext" x="760" y="300" font-family="Verdana" font-size="55"></text>
   </g>
   <g>
+    <a href="#damage">
        <path id="rightleg" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m689.35 658.51-127.03-1.1241-9.5552 78.127-9.5552 8.9931 42.155 146.14-8.431 3.3724-2.2483 6.1828 26.417 23.607 3.9345 20.796-2.8103 12.366 10.117 34.286-3.9345 6.7448-2.2483 163.56 23.045 39.907 35.41 6.1827 10.117 41.031 11.241 3.9344-0.56206 37.096-16.862 8.9924-3.3724 14.614-9.5552 10.679 1.1241 21.359 250.68 1.6862-0.56206-21.921-10.679-5.0586-7.3069-15.738-55.645-23.606-11.241-20.234 23.045-11.803-16.3-67.448 19.11-21.921v-23.045l-65.762-151.76-8.431-3.9345 3.3724-68.01-12.928-55.645-23.045-1.1242-51.71-197.29z"/>
    <text id="rightlegtext" x="760" y="300" font-family="Verdana" font-size="55"></text>
   </g>
   <g>
+    <a href="#damage">
        <path id="leftarm" class="modalbox" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m232.02 93.761-48.9-50.586-33.724 12.366-1.6862 60.141-55.083-27.541-24.731 16.3 14.614 68.01-50.024-2.8103-12.365 34.286 34.848 41.031-41.031 5.6207-3.3724 31.476 43.279 39.907 6.7448 1.1241-11.241 122.53 3.3724 9.5552 8.431 4.4966-10.679 6.1828 8.431 9.5552-6.7448 2.8103-7.869 6.1828-25.855 121.97 30.352 44.965c5.4316 0.57894 10.865 1.141 16.3 1.6862 23.765 2.3839 47.562 4.445 71.383 6.1827l27.526 101.94-30.492-23.844-14.468 63.627-68.95-42.306 15.002-106.16 90.493 8.431 8.431-6.7448 15.176-157.94-5.6207-8.9931-4.4965-1.1241 8.9931-6.7448-7.869-8.9931 5.6207-1.1241 6.1827-8.9931 9.5552-116.35 9.5552-3.3724 2.8103-17.424 17.424 8.9931-5.0586-114.66-10.117 2.8103 2.8103-35.972 37.096-21.359 5.0586-24.731-19.11-44.403z"/>
   <g>
-   <text id="leftarmtext" x="40" y="300" font-family="Verdana" font-size="55">LA</text>
+   <text id="leftarmtext" x="40" y="300" font-family="Verdana" font-size="55"> </text>
   </g>
   <g>
+    <a href="#damage">
        <path id="rightarm" class="modalbox" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m735.13 89.963 48.9-50.586 33.724 12.366 1.6862 60.141 55.083-27.541 24.731 16.3-14.614 68.01 50.024-2.8103 12.366 34.286-34.848 41.031 41.031 5.6207 3.3724 31.476-43.279 39.907-6.7448 1.1241 11.241 122.53-3.3724 9.5552-8.431 4.4966 10.679 6.1828-8.431 9.5552 6.7448 2.8103 7.869 6.1828 25.855 121.97-30.352 44.965c-5.4316 0.57894-10.865 1.141-16.3 1.6862-23.765 2.3839-47.562 4.445-71.383 6.1827l-27.526 101.94 30.492-23.844 14.468 63.627 68.95-42.306-15.002-106.16-90.493 8.431-8.431-6.7448-15.176-157.94 5.6207-8.9931 4.4965-1.1241-8.9931-6.7448 7.869-8.9931-5.6207-1.1241-6.1827-8.9931-9.5552-116.35-9.5552-3.3724-2.8103-17.424-17.424 8.9931 5.0586-114.66 10.117 2.8103-2.8103-35.972-37.096-21.359-5.0586-24.731 19.11-44.403z"/>
-    <text id="rightarmtext" x="760" y="300" font-family="Verdana" font-size="55">RA</text>
+    <text id="rightarmtext" x="760" y="300" font-family="Verdana" font-size="55"> </text>
   </g>
 </g>
 </svg></div>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="jquery.modal.min.js"></script>
 <script src="mech.js"></script>
 </body>
 </html>
