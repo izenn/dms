@@ -1,68 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" media="all" href="fancybox/jquery.fancybox.css">
-<link rel="stylesheet" type="text/css" media="all" href="style.css">
-
   <style type="text/css">
     body { margin:1em;}
-    path {
-      fill:white;
-      stroke:black;
-      stroke-width:3;
-      stroke-linejoin:round;
-      stroke-linecap:round;
-    }
-.container {
-    width: 33%;
-    height: 0;
-    padding-top: 48%;
-    position: relative;
-}
-
-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+    path { fill:white; stroke:black; stroke-width:3; stroke-linejoin:round; stroke-linecap:round; }
+    .container { width: 33%; height: 0; padding-top: 48%; position: relative; }
+    svg { position: absolute; top: 0; left: 0; }
   </style>
 </head>
 <body>
+
 <select id="selector"></select>
 <span></span>
 <div class="container"><svg id="mechfront" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 966 1354">
   <defs>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="CT">
-      <stop stop-color="#F00" offset="0%" id="CT1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="CT2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="ctFill">
+      <stop stop-color="#F00" offset="0%" id="ctFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="ctFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="LT">
-      <stop stop-color="#F00" offset="0%" id="LT1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="LT2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="ltFill">
+      <stop stop-color="#F00" offset="0%" id="ltFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="ltFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="RT">
-      <stop stop-color="#F00" offset="0%" id="RT1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="RT2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="rtFill">
+      <stop stop-color="#F00" offset="0%" id="rtFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="rtFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="Head">
-      <stop stop-color="#F00" offset="0%" id="Head1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="Head2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="headFill">
+      <stop stop-color="#F00" offset="0%" id="headFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="headFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="LL">
-      <stop stop-color="#F00" offset="0%" id="LL1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="LL2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="llFill">
+      <stop stop-color="#F00" offset="0%" id="llFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="llFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="RL">
-      <stop stop-color="#F00" offset="0%" id="RL1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="RL2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="rlFill">
+      <stop stop-color="#F00" offset="0%" id="rlFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="rlFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="LA">
-      <stop stop-color="#F00" offset="0%" id="LA1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="LA2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="laFill">
+      <stop stop-color="#F00" offset="0%" id="laFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="laFill2"/>
     </linearGradient>
-    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="RA">
-      <stop stop-color="#F00" offset="0%" id="RA1"/>
-      <stop stop-color="#FFFFFF" offset="0%" id="RA2"/>
+    <linearGradient y2="100%" x2="0%" y1="0%" x1="0%" id="raFill">
+      <stop stop-color="#F00" offset="0%" id="raFill1"/>
+      <stop stop-color="#FFFFFF" offset="0%" id="raFill2"/>
     </linearGradient>
   </defs>
   <g id="layer1" stroke="#000" stroke-width="7" fill="none">
@@ -96,14 +78,13 @@ svg {
    <text id="leftarmtext" x="40" y="300" font-family="Verdana" font-size="55">LA</text>
   </g>
   <g>
-       <path id="rightarm" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m735.13 89.963 48.9-50.586 33.724 12.366 1.6862 60.141 55.083-27.541 24.731 16.3-14.614 68.01 50.024-2.8103 12.366 34.286-34.848 41.031 41.031 5.6207 3.3724 31.476-43.279 39.907-6.7448 1.1241 11.241 122.53-3.3724 9.5552-8.431 4.4966 10.679 6.1828-8.431 9.5552 6.7448 2.8103 7.869 6.1828 25.855 121.97-30.352 44.965c-5.4316 0.57894-10.865 1.141-16.3 1.6862-23.765 2.3839-47.562 4.445-71.383 6.1827l-27.526 101.94 30.492-23.844 14.468 63.627 68.95-42.306-15.002-106.16-90.493 8.431-8.431-6.7448-15.176-157.94 5.6207-8.9931 4.4965-1.1241-8.9931-6.7448 7.869-8.9931-5.6207-1.1241-6.1827-8.9931-9.5552-116.35-9.5552-3.3724-2.8103-17.424-17.424 8.9931 5.0586-114.66 10.117 2.8103-2.8103-35.972-37.096-21.359-5.0586-24.731 19.11-44.403z"/>
+       <path id="rightarm" class="modalbox" style="color-rendering:auto;color:#000000;isolation:auto;mix-blend-mode:normal;shape-rendering:auto;solid-color:#000000;image-rendering:auto" d="m735.13 89.963 48.9-50.586 33.724 12.366 1.6862 60.141 55.083-27.541 24.731 16.3-14.614 68.01 50.024-2.8103 12.366 34.286-34.848 41.031 41.031 5.6207 3.3724 31.476-43.279 39.907-6.7448 1.1241 11.241 122.53-3.3724 9.5552-8.431 4.4966 10.679 6.1828-8.431 9.5552 6.7448 2.8103 7.869 6.1828 25.855 121.97-30.352 44.965c-5.4316 0.57894-10.865 1.141-16.3 1.6862-23.765 2.3839-47.562 4.445-71.383 6.1827l-27.526 101.94 30.492-23.844 14.468 63.627 68.95-42.306-15.002-106.16-90.493 8.431-8.431-6.7448-15.176-157.94 5.6207-8.9931 4.4965-1.1241-8.9931-6.7448 7.869-8.9931-5.6207-1.1241-6.1827-8.9931-9.5552-116.35-9.5552-3.3724-2.8103-17.424-17.424 8.9931 5.0586-114.66 10.117 2.8103-2.8103-35.972-37.096-21.359-5.0586-24.731 19.11-44.403z"/>
     <text id="rightarmtext" x="760" y="300" font-family="Verdana" font-size="55">RA</text>
   </g>
 </g>
 </svg></div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="fancybox/jquery.fancybox.js"></script>
 <script src="mech.js"></script>
 </body>
 </html>

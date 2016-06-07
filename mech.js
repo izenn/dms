@@ -40,44 +40,44 @@ var rlDamage = 0;
 
 jQuery(function($){
   $('#centertorso').click(function(){
-        ctDamage = fill('CT', obj[values].CT_Armor, ctDamage);
-        this.style.fill = "url(#CT)";
+        ctDamage = fill('ctFill', obj[values].CT_Armor, ctDamage);
+        this.style.fill = "url(#ctFill)";
     });
   $('#lefttorso').click(function(){
-        ltDamage = fill('LT', obj[values].LT_Armor, ltDamage);
-        this.style.fill = "url(#LT)";
+        ltDamage = fill('ltFill', obj[values].LT_Armor, ltDamage);
+        this.style.fill = "url(#ltFill)";
         $('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
     });
   $('#righttorso').click(function(){
-        rtDamage = fill('RT', obj[values].RT_Armor, rtDamage);
-        this.style.fill = "url(#RT)";
+        rtDamage = fill('rtFill', obj[values].RT_Armor, rtDamage);
+        this.style.fill = "url(#rtFill)";
     });
   $('#head').click(function(){
-        headDamage = fill('Head', obj[values].Head_Armor, headDamage);
-        this.style.fill = "url(#Head)";
+        headDamage = fill('headFill', obj[values].Head_Armor, headDamage);
+        this.style.fill = "url(#headFill)";
     });
   $('#leftleg').click(function(){
-        llDamage = fill('LL', obj[values].LL_Armor, llDamage);
-        this.style.fill = "url(#LL)";
+        llDamage = fill('llFill', obj[values].LL_Armor, llDamage);
+        this.style.fill = "url(#llFill)";
     });
   $('#rightleg').click(function(){
-        rlDamage = fill('RL', obj[values].RL_Armor, rlDamage);
-        this.style.fill = "url(#RL)";
+        rlDamage = fill('rlFill', obj[values].RL_Armor, rlDamage);
+        this.style.fill = "url(#rlFill)";
     });
   $('#leftarm').click(function(){
-        laDamage = fill('LA', obj[values].LA_Armor, laDamage);
-        this.style.fill = "url(#LA)";
+        laDamage = fill('laFill', obj[values].LA_Armor, laDamage);
+        this.style.fill = "url(#laFill)";
         $('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
     });
   $('#rightarm').click(function(){
-        raDamage = fill('RA', obj[values].RA_Armor, raDamage, 'url(#RA)');
-        this.style.fill = "url(#RA)";
+        raDamage = fill('raFill', obj[values].RA_Armor, raDamage);
+        this.style.fill = "url(#raFill)";
         $('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
     });
 });
 
 
-function fill(name, partTotal, oldDamage, styleFill){
+function fill(name, partTotal, oldDamage){
     var speed=15;
     var fill=oldDamage * 100 / partTotal;
     var newDamage = parseInt(prompt("Please enter new damage"), 10);
@@ -96,7 +96,7 @@ function fill(name, partTotal, oldDamage, styleFill){
       }, speed);
 	if (percentage > 100) {
 	  var extraDamage = damage - partTotal;
-	  alert("extra damage " + extraDamage); 
+	  alert("excess damage " + extraDamage); 
 	}
 	damage = partTotal;
     } else if (percentage > 0) {
