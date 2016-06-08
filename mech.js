@@ -23,9 +23,9 @@ $(document).ready(function () {
     var output = obj[values].Head_Armor + " " + obj[values].LA_Armor + " " + obj[values].LT_Armor + " " + obj[values].CT_Armor + " " + obj[values].RT_Armor + " " + obj[values].RA_Armor + " " + obj[values].LL_Armor + " " + obj[values].RL_Armor + "<br/>"
     console.log(obj[values]);
     $('span').html(output);
-    //		$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
-    //		$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
-    //		$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
+    //      $('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
+    //      $('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
+    //      $('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
   })
 });
 
@@ -39,19 +39,6 @@ var llDamage = 0;
 var rlDamage = 0;
 
 jQuery(function ($) {
-  $('#centertorso').click(function () {
-    ctDamage = fill('ctFill', obj[values].CT_Armor, ctDamage);
-    this.style.fill = "url(#ctFill)";
-  });
-  $('#lefttorso').click(function () {
-    ltDamage = fill('ltFill', obj[values].LT_Armor, ltDamage);
-    this.style.fill = "url(#ltFill)";
-    //$('#lefttorsotext').html(ltDamage + "/" + obj[values].LT_Armor);
-  });
-  $('#righttorso').click(function () {
-    rtDamage = fill('rtFill', obj[values].RT_Armor, rtDamage);
-    this.style.fill = "url(#rtFill)";
-  });
   $('a[href="#damage"]').click(function () {
     var target = '';
     target = $(event.target);
@@ -68,27 +55,36 @@ jQuery(function ($) {
         headDamage = fill('headFill', obj[values].Head_Armor, headDamage);
         var element = document.getElementById('head')
         element.style.fill = "url(#headFill)";
+      } else if (target.is('#leftleg')) {
+          llDamage = fill('llFill', obj[values].LL_Armor, llDamage);
+          var element = document.getElementById('leftleg')
+          element.style.fill = "url(#llFill)";
+      } else if (target.is('#rightleg')) {
+          rlDamage = fill('rlFill', obj[values].RL_Armor, rlDamage);
+          var element = document.getElementById('rightleg')
+          element.style.fill = "url(#rlFill)";
+      } else if (target.is('#leftarm')) {
+          laDamage = fill('laFill', obj[values].LA_Armor, laDamage);
+          var element = document.getElementById('leftarm')
+          element.style.fill = "url(#laFill)";
+      } else if (target.is('#rightarm')) {
+          raDamage = fill('raFill', obj[values].RA_Armor, raDamage);
+           var element = document.getElementById('rightarm')
+          element.style.fill = "url(#raFill)";
+        } else if (target.is('#centertorso')) {
+          ctDamage = fill('ctFill', obj[values].CT_Armor, ctDamage);
+          var element = document.getElementById('centertorso')
+          element.style.fill = "url(#ctFill)";
+        } else if (target.is('#lefttorso')) {
+	  ltDamage = fill('ltFill', obj[values].LT_Armor, ltDamage);
+       	  var element = document.getElementById('lefttorso')
+       	  element.style.fill = "url(#ltFill)";
+      } else if (target.is('#righttorso')) {
+          rtDamage = fill('rtFill', obj[values].RT_Armor, rtDamage);
+          var element = document.getElementById('righttorso')
+          element.style.fill = "url(#rtFill)";
       };
     });
-
-  });
-  $('#leftleg').click(function () {
-    llDamage = fill('llFill', obj[values].LL_Armor, llDamage);
-    this.style.fill = "url(#llFill)";
-  });
-  $('#rightleg').click(function () {
-    rlDamage = fill('rlFill', obj[values].RL_Armor, rlDamage);
-    this.style.fill = "url(#rlFill)";
-  });
-  $('#leftarm').click(function () {
-    laDamage = fill('laFill', obj[values].LA_Armor, laDamage);
-    this.style.fill = "url(#laFill)";
-    //$('#leftarmtext').html(laDamage + "/" + obj[values].LA_Armor);
-  });
-  $('#rightarm').click(function () {
-    raDamage = fill('raFill', obj[values].RA_Armor, raDamage);
-    this.style.fill = "url(#raFill)";
-    //$('#rightarmtext').html(raDamage + "/" + obj[values].RA_Armor);
   });
 });
 
