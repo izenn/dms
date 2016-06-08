@@ -37,6 +37,9 @@ var rtDamage = 0;
 var raDamage = 0;
 var llDamage = 0;
 var rlDamage = 0;
+var rtrDamage = 0;
+var ctrDamage = 0;
+var ltrDamage = 0;
 
 jQuery(function ($) {
   $('a[href="#damage"]').click(function () {
@@ -83,6 +86,18 @@ jQuery(function ($) {
           rtDamage = fill('rtFill', obj[values].RT_Armor, rtDamage);
           var element = document.getElementById('righttorso')
           element.style.fill = "url(#rtFill)";
+      } else if (target.is('#centertorsorear')) {
+          ctDamage = fill('ctrFill', obj[values].CTR_Armor, ctrDamage);
+          var element = document.getElementById('centertorsorear')
+          element.style.fill = "url(#ctrFill)";
+        } else if (target.is('#lefttorsorear')) {
+          ltDamage = fill('ltrFill', obj[values].LTR_Armor, ltrDamage);
+          var element = document.getElementById('lefttorsorear')
+          element.style.fill = "url(#ltrFill)";
+      } else if (target.is('#righttorsorear')) {
+          rtDamage = fill('rtrFill', obj[values].RTR_Armor, rtrDamage);
+          var element = document.getElementById('righttorsorear')
+          element.style.fill = "url(#rtrFill)";
       };
     });
   });
