@@ -27,41 +27,23 @@ $(document).ready(function() {
 });
 
 var headDamage = 0;
-
 var laDamage = 0;
-
 var ltDamage = 0;
-
 var ctDamage = 0;
-
 var rtDamage = 0;
-
 var raDamage = 0;
-
 var llDamage = 0;
-
 var rlDamage = 0;
-
 var rtrDamage = 0;
-
 var ctrDamage = 0;
-
 var ltrDamage = 0;
-
 var headiDamage = 0;
-
 var laiDamage = 0;
-
 var ltiDamage = 0;
-
 var ctiDamage = 0;
-
 var rtiDamage = 0;
-
 var raiDamage = 0;
-
 var lliDamage = 0;
-
 var rliDamage = 0;
 
 jQuery(function($) {
