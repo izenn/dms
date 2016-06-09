@@ -40,6 +40,14 @@ var rlDamage = 0;
 var rtrDamage = 0;
 var ctrDamage = 0;
 var ltrDamage = 0;
+var headiDamage = 0;
+var laiDamage = 0;
+var ltiDamage = 0;
+var ctiDamage = 0;
+var rtiDamage = 0;
+var raiDamage = 0;
+var lliDamage = 0;
+var rliDamage = 0;
 
 jQuery(function ($) {
   $('a[href="#damage"]').click(function () {
@@ -98,6 +106,38 @@ jQuery(function ($) {
           rtDamage = fill('rtrFill', obj[values].RTR_Armor, rtrDamage);
           var element = document.getElementById('righttorsorear')
           element.style.fill = "url(#rtrFill)";
+      }else if (target.is('#headinternal')) {
+        headiDamage = fill('headiFill', obj[values].Head_Internal, headiDamage);
+        var element = document.getElementById('headinternal')
+        element.style.fill = "url(#headiFill)";
+      } else if (target.is('#leftleginternal')) {
+          lliDamage = fill('lliFill', obj[values].LL_Internal, lliDamage);
+          var element = document.getElementById('leftleginternal')
+          element.style.fill = "url(#lliFill)";
+      } else if (target.is('#rightleginternal')) {
+          rliDamage = fill('rliFill', obj[values].RL_Internal, rliDamage);
+          var element = document.getElementById('rightleginternal')
+          element.style.fill = "url(#rliFill)";
+      } else if (target.is('#leftarminternal')) {
+          laiDamage = fill('laiFill', obj[values].LA_Internal, laiDamage);
+          var element = document.getElementById('leftarminternal')
+          element.style.fill = "url(#laiFill)";
+      } else if (target.is('#rightarminternal')) {
+          raiDamage = fill('raiFill', obj[values].RA_Internal, raiDamage);
+           var element = document.getElementById('rightarminternal')
+          element.style.fill = "url(#raiFill)";
+        } else if (target.is('#centertorsointernal')) {
+          ctiDamage = fill('ctiFill', obj[values].CT_Internal, ctiDamage);
+          var element = document.getElementById('centertorsointernal')
+          element.style.fill = "url(#ctiFill)";
+        } else if (target.is('#lefttorsointernal')) {
+          ltiDamage = fill('ltiFill', obj[values].LT_Internal, ltiDamage);
+          var element = document.getElementById('lefttorsointernal')
+          element.style.fill = "url(#ltiFill)";
+      } else if (target.is('#righttorsointernal')) {
+          rtiDamage = fill('rtiFill', obj[values].RT_Internal, rtiDamage);
+          var element = document.getElementById('righttorsointernal')
+          element.style.fill = "url(#rtiFill)";
       };
     });
   });
